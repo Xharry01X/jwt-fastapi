@@ -1,11 +1,6 @@
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from routes import router as users_router  # Update the import to the new file name
 
 app = FastAPI()
 
-
-@app.get('/')
-def health_check():
-    return JSONResponse(content={"status":"Running"})
-
-
+app.include_router(users_router)

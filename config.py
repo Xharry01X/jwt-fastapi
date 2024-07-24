@@ -6,25 +6,18 @@ from pydantic_settings import BaseSettings  # Provides a way to manage applicati
 
 # Define the path to the .env file
 env_path = Path(".") / ".env"
-
-# Load environment variables from the .env file
 load_dotenv(dotenv_path=env_path)
 
 # Define a Pydantic settings class to manage configuration
 class Settings(BaseSettings):
-    
     # Fetching the database user from environment variables
     DB_USER: str = os.getenv("DB_USER")
-    
     # Fetching the database host from environment variables
     DB_HOST: str = os.getenv("DB_HOST")
-    
     # Fetching the database name from environment variables
     DB_NAME: str = os.getenv("DB_NAME")
-    
     # Fetching the database password from environment variables
     DB_PASSWORD: str = os.getenv("DB_PASSWORD")
-    
     # Fetching the database port from environment variables
     DB_PORT: str = os.getenv("DB_PORT")
     
